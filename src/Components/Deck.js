@@ -54,6 +54,17 @@ export default function Deck() {
           </button>
         </div>
       ))}
+
+      {deckReact.map((element, index) => (
+        <div className="answer">
+          <p>{element.Answer}</p>
+          <div className="recall-options">
+            <button className="red">Não lembrei</button>
+            <button className="yellow">Quase não lembrei</button>
+            <button className="green">Zap!</button>
+          </div>
+        </div>
+      ))}
     </div>
   );
 }
