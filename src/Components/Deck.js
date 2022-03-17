@@ -37,10 +37,21 @@ export default function Deck() {
 
   return (
     <div className="deck">
-      {deckReact.map((elemento, indice) => (
+      {deckReact.map((element, index) => (
         <div className="flashcard">
-          <p>Pergunta {indice + 1}</p>
-          <ion-icon name="play-outline"></ion-icon>
+          <p>Pergunta {index + 1}</p>
+          <button>
+            <ion-icon name="play-outline"></ion-icon>
+          </button>
+        </div>
+      ))}
+
+      {deckReact.map((element, index) => (
+        <div className="question">
+          <p>{element.Question}</p>
+          <button>
+            <img src="assets/img/setinha.png" alt="turn" />
+          </button>
         </div>
       ))}
     </div>

@@ -52,7 +52,7 @@ button:hover {
 }
 
 header {
-  height: 60px;
+  height: 90px;
   background-color: #fb6b6b;
   display: flex;
   flex-direction: row;
@@ -66,25 +66,25 @@ header {
 }
 
 header img {
-  height: 40px;
+  height: 55px;
 }
 
 header p {
   font-family: "Righteous", cursive;
   font-weight: 400;
-  font-size: 25px;
+  font-size: 32px;
   color: #ffffff;
   margin-left: 10px;
 }
 
 .deck {
-  margin-top: 60px;
-  margin-bottom: 55px;
+  margin-top: 95px;
+  margin-bottom: 70px;
 }
 
 .flashcard {
-  width: 182px;
-  height: 40px;
+  width: 240px;
+  height: 60px;
   background: #ffffff;
   box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.15);
   border-radius: 5px;
@@ -92,7 +92,7 @@ header p {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
+  padding: 14px;
   margin: 5px auto;
 }
 
@@ -100,13 +100,58 @@ header p {
   font-family: "Recursive";
   font-style: normal;
   font-weight: 700;
-  font-size: 12px;
+  font-size: 18px;
   line-height: 14px;
   color: #333333;
 }
 
+.flashcard button {
+  border: none;
+  background-color: #ffffff;
+}
+
+.flashcard button ion-icon {
+  font-size: 26px;
+}
+
+.question {
+  width: 240px;
+  height: 85px;
+  background: #ffffd4;
+  box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 14px;
+  margin: 5px auto;
+  position: relative;
+}
+
+.question p {
+  font-family: "Recursive";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 14px;
+  color: #333333;
+}
+
+.question button {
+  border: none;
+  background-color: #ffffd4;
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+}
+
+.question button img {
+  height: 17px;
+}
+
 footer {
-  height: 50px;
+  height: 65px;
   background: #ffffff;
   box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.05);
   position: fixed;
@@ -122,7 +167,7 @@ footer p {
   font-family: "Recursive";
   font-style: normal;
   font-weight: 400;
-  font-size: 12px;
+  font-size: 16px;
   line-height: 14px;
   color: #333333;
 }
