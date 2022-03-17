@@ -1,11 +1,6 @@
-import LogoMenu from "./LogoMenu";
-import StartRecall from "./StartRecall";
+import Homepage from "./Homepage";
+import Deckpage from "./Deckpage";
 
 export default function App() {
-  return (
-    <div className="menu">
-      <LogoMenu />
-      <StartRecall />
-    </div>
-  );
+  return <Deckpage />;
 }
