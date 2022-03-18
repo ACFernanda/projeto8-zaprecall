@@ -6,6 +6,10 @@ body {
   background-color: #fb6b6b;
 }
 
+* button {
+  cursor: pointer;
+}
+
 .menu {
   display: flex;
   flex-direction: column;
@@ -45,10 +49,6 @@ body {
   text-align: center;
   color: #d70900;
   margin-top: 70px;
-}
-
-button:hover {
-  cursor: pointer;
 }
 
 header {

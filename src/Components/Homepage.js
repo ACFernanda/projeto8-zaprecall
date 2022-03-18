@@ -1,11 +1,11 @@
-import LogoMenu from "./LogoMenu";
-import StartRecall from "./StartRecall";
-
-export default function Homepage() {
+export default function Homepage({ setScreen }) {
   return (
     <div className="menu">
-      <LogoMenu />
-      <StartRecall />
+      <div className="logo-menu">
+        <img src="assets/img/logo.png" alt="logoZapRecall"></img>
+        <p>ZapRecall</p>
+      </div>
+      <button onClick={() => setScreen(false)}>Iniciar Recall!</button>
     </div>
   );
 }
