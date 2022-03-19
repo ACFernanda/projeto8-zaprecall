@@ -37,45 +37,52 @@ export default function Deck() {
     },
   ];
 
-  // deckReact.sort(compare);
-  // function compare() {
-  //   return Math.random() - 0.5;
-  // }
-
   function RenderFlashcard(element, index) {
     const [stage, setStage] = React.useState("hidden");
     if (stage === "hidden") {
-      return (
-        <div className="flashcard">
-          <p>Pergunta {index + 1}</p>
-          <button onClick={() => setStage("question")}>
-            <ion-icon name="play-outline"></ion-icon>
-          </button>
-        </div>
-      );
+      return <FlashcardHidden index={index} setStage={setStage} />;
     }
     if (stage === "question") {
-      return (
-        <div className="question">
-          <p>{element.Question}</p>
-          <button onClick={() => setStage("answer")}>
-            <img src="assets/img/setinha.png" alt="turn" />
-          </button>
-        </div>
-      );
+      return <FlashcardQuestion element={element} setStage={setStage} />;
     }
     if (stage === "answer") {
-      return (
-        <div className="answer">
-          <p>{element.Answer}</p>
-          <div className="recall-options">
-            <button className="red">Não lembrei</button>
-            <button className="yellow">Quase não lembrei</button>
-            <button className="green">Zap!</button>
-          </div>
-        </div>
-      );
+      return <FlashcardAnswer element={element} setStage={setStage} />;
     }
+  }
+
+  function FlashcardHidden({ element, index, setStage }) {
+    return (
+      <div className="flashcard">
+        <p>Pergunta {index + 1}</p>
+        <button onClick={() => setStage("question")}>
+          <ion-icon name="play-outline"></ion-icon>
+        </button>
+      </div>
+    );
+  }
+
+  function FlashcardQuestion({ element, index, setStage }) {
+    return (
+      <div className="question">
+        <p>{element.Question}</p>
+        <button onClick={() => setStage("answer")}>
+          <img src="assets/img/setinha.png" alt="turn" />
+        </button>
+      </div>
+    );
+  }
+
+  function FlashcardAnswer({ element, index, setStage }) {
+    return (
+      <div className="answer">
+        <p>{element.Answer}</p>
+        <div className="recall-options">
+          <button className="red">Não lembrei</button>
+          <button className="yellow">Quase não lembrei</button>
+          <button className="green">Zap!</button>
+        </div>
+      </div>
+    );
   }
 
   return (
