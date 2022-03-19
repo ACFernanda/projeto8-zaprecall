@@ -3,6 +3,23 @@ import FlashcardHidden from "./FlashcardHidden";
 import FlashcardQuestion from "./FlashcardQuestion";
 import FlashcardAnswer from "./FlashcardAnswer";
 
+function RenderFlashcard({ element, index }) {
+  const [stage, setStage] = React.useState("hidden");
+  if (stage === "hidden") {
+    return (
+      <FlashcardHidden index={index} setStage={setStage} option="unanswered" />
+    );
+  }
+  if (stage === "question") {
+    return <FlashcardQuestion element={element} setStage={setStage} />;
+  }
+  if (stage === "answer") {
+    return (
+      <FlashcardAnswer element={element} index={index} setStage={setStage} />
+    );
+  }
+}
+
 export default function Deck() {
   const deckReact = [
     {
@@ -40,28 +57,11 @@ export default function Deck() {
     },
   ];
 
-  function RenderFlashcard(element, index) {
-    const [stage, setStage] = React.useState("hidden");
-    if (stage === "hidden") {
-      return (
-        <FlashcardHidden
-          index={index}
-          setStage={setStage}
-          option="unanswered"
-        />
-      );
-    }
-    if (stage === "question") {
-      return <FlashcardQuestion element={element} setStage={setStage} />;
-    }
-    if (stage === "answer") {
-      return <FlashcardAnswer element={element} setStage={setStage} />;
-    }
-  }
-
   return (
     <div className="deck">
-      {deckReact.map((element, index) => RenderFlashcard(element, index))}
+      {deckReact.map((element, index) => {
+        return <RenderFlashcard key={index} element={element} index={index} />;
+      })}
     </div>
   );
 }
