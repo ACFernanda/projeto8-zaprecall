@@ -3,24 +3,7 @@ import FlashcardHidden from "./FlashcardHidden";
 import FlashcardQuestion from "./FlashcardQuestion";
 import FlashcardAnswer from "./FlashcardAnswer";
 
-function RenderFlashcard({ element, index }) {
-  const [stage, setStage] = React.useState("hidden");
-  if (stage === "hidden") {
-    return (
-      <FlashcardHidden index={index} setStage={setStage} option="unanswered" />
-    );
-  }
-  if (stage === "question") {
-    return <FlashcardQuestion element={element} setStage={setStage} />;
-  }
-  if (stage === "answer") {
-    return (
-      <FlashcardAnswer element={element} index={index} setStage={setStage} />
-    );
-  }
-}
-
-export default function Deck() {
+export default function Deck({ callback }) {
   const deckReact = [
     {
       Question: "O que é JSX?",
@@ -65,8 +48,37 @@ export default function Deck() {
   return (
     <div className="deck">
       {deckReact.map((element, index) => {
-        return <RenderFlashcard key={index} element={element} index={index} />;
+        return (
+          <RenderFlashcard
+            key={index}
+            element={element}
+            index={index}
+            callback={callback}
+          />
+        );
       })}
     </div>
   );
+}
+
+function RenderFlashcard({ element, index, callback }) {
+  const [stage, setStage] = React.useState("hidden");
+  if (stage === "hidden") {
+    return (
+      <FlashcardHidden index={index} setStage={setStage} option="unanswered" />
+    );
+  }
+  if (stage === "question") {
+    return <FlashcardQuestion element={element} setStage={setStage} />;
+  }
+  if (stage === "answer") {
+    return (
+      <FlashcardAnswer
+        element={element}
+        index={index}
+        setStage={setStage}
+        callback={callback}
+      />
+    );
+  }
 }

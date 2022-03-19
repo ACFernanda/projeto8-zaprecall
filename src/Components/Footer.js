@@ -1,7 +1,7 @@
-export default function Footer() {
+export default function Footer({ total }) {
   return (
     <footer>
-      <p>0/8 CONCLUÍDOS</p>
+      <p>{total}/8 CONCLUÍDOS</p>
     </footer>
   );
 }
