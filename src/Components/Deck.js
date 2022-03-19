@@ -57,6 +57,11 @@ export default function Deck() {
     },
   ];
 
+  deckReact.sort(compare);
+  function compare() {
+    return Math.random() - 0.5;
+  }
+
   return (
     <div className="deck">
       {deckReact.map((element, index) => {
