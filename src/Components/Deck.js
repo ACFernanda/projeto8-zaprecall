@@ -37,27 +37,35 @@ export default function Deck() {
     },
   ];
 
-  return (
-    <div className="deck">
-      {deckReact.map((element, index) => (
+  // deckReact.sort(compare);
+  // function compare() {
+  //   return Math.random() - 0.5;
+  // }
+
+  function RenderFlashcard(element, index) {
+    const [stage, setStage] = React.useState("hidden");
+    if (stage === "hidden") {
+      return (
         <div className="flashcard">
           <p>Pergunta {index + 1}</p>
-          <button>
+          <button onClick={() => setStage("question")}>
             <ion-icon name="play-outline"></ion-icon>
           </button>
         </div>
-      ))}
-
-      {deckReact.map((element, index) => (
+      );
+    }
+    if (stage === "question") {
+      return (
         <div className="question">
           <p>{element.Question}</p>
-          <button>
+          <button onClick={() => setStage("answer")}>
             <img src="assets/img/setinha.png" alt="turn" />
           </button>
         </div>
-      ))}
-
-      {deckReact.map((element, index) => (
+      );
+    }
+    if (stage === "answer") {
+      return (
         <div className="answer">
           <p>{element.Answer}</p>
           <div className="recall-options">
@@ -66,7 +74,13 @@ export default function Deck() {
             <button className="green">Zap!</button>
           </div>
         </div>
-      ))}
+      );
+    }
+  }
+
+  return (
+    <div className="deck">
+      {deckReact.map((element, index) => RenderFlashcard(element, index))}
     </div>
   );
 }
