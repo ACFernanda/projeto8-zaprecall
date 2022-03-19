@@ -114,6 +114,33 @@ header p {
   font-size: 26px;
 }
 
+.flashcard.red {
+  color: #ff3030;
+  text-decoration-line: line-through;
+}
+
+.flashcard.red p {
+  color: red;
+}
+
+.flashcard.yellow {
+  color: #ff922e;
+  text-decoration-line: line-through;
+}
+
+.flashcard.yellow p {
+  color: #ff922e;
+}
+
+.flashcard.green {
+  color: #2fbe34;
+  text-decoration-line: line-through;
+}
+
+.flashcard.green p {
+  color: #2fbe34;
+}
+
 .question {
   width: 240px;
   height: 100px;
