@@ -1,3 +1,6 @@
+import sadFace from "../assets/img/sad.png";
+import partyFace from "../assets/img/party.png";
+
 export default function Footer({ finished, icons }) {
   const arrayColors = icons.split(" ");
 
@@ -13,7 +16,7 @@ export default function Footer({ finished, icons }) {
     return (
       <footer>
         <div class="result">
-          <img src="assets/img/sad.png" alt="sad-face" />
+          <img src={sadFace} alt="sad-face" />
           <span>PUTZ!</span>
         </div>
         <p>Ainda faltaram alguns... Mas não desanime!</p>
@@ -25,7 +28,7 @@ export default function Footer({ finished, icons }) {
     return (
       <footer>
         <div class="result">
-          <img src="assets/img/party.png" alt="party-face" />
+          <img src={partyFace} alt="party-face" />
           <span>PARABÉNS!</span>
         </div>
         <p>Você não esqueceu de nenhum flashcard!</p>

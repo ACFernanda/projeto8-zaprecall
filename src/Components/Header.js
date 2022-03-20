@@ -1,7 +1,9 @@
+import logo from "../assets/img/logo.png";
+
 export default function Header() {
   return (
     <header>
-      <img src="assets/img/logo.png" alt="logoZapRecall"></img>
+      <img src={logo} alt="logoZapRecall"></img>
       <p>ZapRecall</p>
     </header>
   );

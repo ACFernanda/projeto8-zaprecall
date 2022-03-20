@@ -1,10 +1,11 @@
 import React from "react";
+import logo from "../assets/img/logo.png";
 
 export default function Homepage({ setScreen, setDeck }) {
   return (
     <div className="menu">
       <div className="logo-menu">
-        <img src="assets/img/logo.png" alt="logoZapRecall"></img>
+        <img src={logo} alt="logoZapRecall"></img>
         <p>ZapRecall</p>
       </div>
       <select name="decks" id="deck-select">
