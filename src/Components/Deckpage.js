@@ -4,7 +4,6 @@ import Deck from "./Deck";
 import Footer from "./Footer";
 
 export default function Deckpage({ deck }) {
-  console.log(deck);
   const [finished, setFinished] = React.useState(0);
   const [icons, setIcons] = React.useState(" ");
 

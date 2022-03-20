@@ -1,3 +1,5 @@
+import React from "react";
+
 export default function Homepage({ setScreen, setDeck }) {
   return (
     <div className="menu">
@@ -9,7 +11,9 @@ export default function Homepage({ setScreen, setDeck }) {
         <option value="" disabled selected>
           Escolha seu deck
         </option>
-        <option value="deckReact">React</option>
+        <option selected value="deckReact">
+          React
+        </option>
         <option value="deckDriven">Driven</option>
       </select>
       <button
