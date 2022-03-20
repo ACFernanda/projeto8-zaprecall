@@ -5,21 +5,7 @@ export default function Footer({ finished, icons }) {
     return (
       <footer>
         <p>{finished}/8 CONCLUÍDOS</p>
-        <div className="icons">
-          {arrayColors.map((color) => {
-            if (color === "red") {
-              return <ion-icon class="red" name="close-circle"></ion-icon>;
-            }
-            if (color === "yellow") {
-              return <ion-icon class="yellow" name="help-circle"></ion-icon>;
-            }
-            if (color === "green") {
-              return (
-                <ion-icon class="green" name="checkmark-circle"></ion-icon>
-              );
-            }
-          })}
-        </div>
+        <AnswersIcons key={finished} arrayColors={arrayColors} />
       </footer>
     );
   }
@@ -31,21 +17,7 @@ export default function Footer({ finished, icons }) {
           <span>PUTZ!</span>
         </div>
         <p>Ainda faltaram alguns... Mas não desanime!</p>
-        <div className="icons">
-          {arrayColors.map((color) => {
-            if (color === "red") {
-              return <ion-icon class="red" name="close-circle"></ion-icon>;
-            }
-            if (color === "yellow") {
-              return <ion-icon class="yellow" name="help-circle"></ion-icon>;
-            }
-            if (color === "green") {
-              return (
-                <ion-icon class="green" name="checkmark-circle"></ion-icon>
-              );
-            }
-          })}
-        </div>
+        <AnswersIcons key={finished} arrayColors={arrayColors} />
       </footer>
     );
   }
@@ -57,22 +29,26 @@ export default function Footer({ finished, icons }) {
           <span>PARABÉNS!</span>
         </div>
         <p>Você não esqueceu de nenhum flashcard!</p>
-        <div className="icons">
-          {arrayColors.map((color) => {
-            if (color === "red") {
-              return <ion-icon class="red" name="close-circle"></ion-icon>;
-            }
-            if (color === "yellow") {
-              return <ion-icon class="yellow" name="help-circle"></ion-icon>;
-            }
-            if (color === "green") {
-              return (
-                <ion-icon class="green" name="checkmark-circle"></ion-icon>
-              );
-            }
-          })}
-        </div>
+        <AnswersIcons key={finished} arrayColors={arrayColors} />
       </footer>
     );
   }
+}
+
+function AnswersIcons({ arrayColors }) {
+  return (
+    <div className="icons">
+      {arrayColors.map((color) => {
+        if (color === "red") {
+          return <ion-icon class="red" name="close-circle"></ion-icon>;
+        }
+        if (color === "yellow") {
+          return <ion-icon class="yellow" name="help-circle"></ion-icon>;
+        }
+        if (color === "green") {
+          return <ion-icon class="green" name="checkmark-circle"></ion-icon>;
+        }
+      })}
+    </div>
+  );
 }
