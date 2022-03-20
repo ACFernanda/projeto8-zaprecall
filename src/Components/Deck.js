@@ -3,7 +3,7 @@ import FlashcardHidden from "./FlashcardHidden";
 import FlashcardQuestion from "./FlashcardQuestion";
 import FlashcardAnswer from "./FlashcardAnswer";
 
-export default function Deck({ callback }) {
+export default function Deck({ callback, deck }) {
   const deckReact = [
     {
       Question: "O que é JSX?",
@@ -40,14 +40,57 @@ export default function Deck({ callback }) {
     },
   ];
 
-  deckReact.sort(compare);
+  const deckDriven = [
+    {
+      Question: "O melhor tutor da Driven é o(a) __",
+      Answer: "Guga!",
+    },
+    {
+      Question: "A melhor turma da Driven é a __",
+      Answer: "5",
+    },
+    {
+      Question: "O melhor grupo da T5 é o __",
+      Answer: "10",
+    },
+    {
+      Question: "O Pedrão é __",
+      Answer: "Incrível",
+    },
+    {
+      Question: "Show de __",
+      Answer: "bolinhas",
+    },
+    {
+      Question: "A Driven tem __ de ex-alunos no mercado de trabalho.",
+      Answer: "100%",
+    },
+    {
+      Question: "A Driven é a melhor?",
+      Answer: "Sim",
+    },
+    {
+      Question: "Diego tem muita __",
+      Answer: "paciência",
+    },
+  ];
+
+  let chosenDeck = [];
+  if (deck === "deckReact") {
+    chosenDeck = [...deckReact];
+  }
+  if (deck === "deckDriven") {
+    chosenDeck = [...deckDriven];
+  }
+
+  chosenDeck.sort(compare);
   function compare() {
     return Math.random() - 0.5;
   }
 
   return (
     <div className="deck">
-      {deckReact.map((element, index) => {
+      {chosenDeck.map((element, index) => {
         return (
           <RenderFlashcard
             key={index}
