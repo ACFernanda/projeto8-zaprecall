@@ -4,13 +4,19 @@ import Deck from "./Deck";
 import Footer from "./Footer";
 
 export default function Deckpage() {
-  const [total, setTotal] = React.useState(0);
+  const [finished, setFinished] = React.useState(0);
+  const [icons, setIcons] = React.useState(" ");
 
   return (
     <>
       <Header />
-      <Deck callback={() => setTotal(total + 1)} />
-      <Footer total={total} />
+      <Deck
+        callback={(icon) => {
+          setFinished(finished + 1);
+          setIcons(`${icons} ${icon}`);
+        }}
+      />
+      <Footer finished={finished} icons={icons} />
     </>
   );
 }

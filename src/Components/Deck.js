@@ -63,6 +63,7 @@ export default function Deck({ callback }) {
 
 function RenderFlashcard({ element, index, callback }) {
   const [stage, setStage] = React.useState("hidden");
+
   if (stage === "hidden") {
     return (
       <FlashcardHidden index={index} setStage={setStage} option="unanswered" />

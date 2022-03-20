@@ -29,7 +29,7 @@ export default function FlashcardAnswer({
         <button
           onClick={() => {
             setStatus("forgot");
-            callback();
+            callback("red");
           }}
           className="red"
         >
@@ -38,7 +38,7 @@ export default function FlashcardAnswer({
         <button
           onClick={() => {
             setStatus("almost");
-            callback();
+            callback("yellow");
           }}
           className="yellow"
         >
@@ -47,7 +47,7 @@ export default function FlashcardAnswer({
         <button
           onClick={() => {
             setStatus("zap");
-            callback();
+            callback("green");
           }}
           className="green"
         >
